@@ -4,7 +4,7 @@ import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import UserForm from "./components/UserForm";
 import ReviewForm from "./components/ReviewForm";
 import Thanks from "./components/Thanks";
-// import Steps from "./components/Steps";
+import Steps from "./components/Steps";
 //Hooks
 import { useForm } from "./hooks/useForm";
 // import { useState } from "react";
@@ -31,7 +31,7 @@ function App() {
         </p>
       </div>
       <div className="form-container">
-        <p>passos</p>
+        <Steps currentStep={currentStep}/>
         <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
           <div className="input-container">
             {currentComponent}
