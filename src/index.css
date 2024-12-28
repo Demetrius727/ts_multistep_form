@@ -1,0 +1,23 @@
+* {
+  font-family: "Barlow", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #eee;
+}
+
+h1, h2, h3, strong {
+  color: #777;
+}
+
+p {
+  color: #666;
+}
+
+body {
+  background-color: #333;
+}
+
+input {
+  color: #444;
+}
