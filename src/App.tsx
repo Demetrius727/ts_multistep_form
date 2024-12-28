@@ -6,12 +6,20 @@ import ReviewForm from "./components/ReviewForm";
 import Thanks from "./components/Thanks";
 // import Steps from "./components/Steps";
 //Hooks
-// import { useForm } from "./hooks/useForm";
+import { useForm } from "./hooks/useForm";
 // import { useState } from "react";
 //Css
 import './App.css'
 
 function App() {
+
+  const formComponents = [
+    <UserForm />,
+    <ReviewForm />,
+    <Thanks />
+  ];
+
+  const { changeStep, currentComponent, currentStep } = useForm(formComponents);
 
   return (
     <div className='app'>
@@ -24,13 +32,13 @@ function App() {
       </div>
       <div className="form-container">
         <p>passos</p>
-        <form>
+        <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
           <div className="input-container">
-            <UserForm />
+            {currentComponent}
           </div>
           <div className="actions">
-            <button><GrFormPrevious /><span>Voltar</span></button>
-            <button><span>Avançar</span><GrFormNext /></button>
+            <button type="button" onClick={() => changeStep(currentStep - 1)}><GrFormPrevious /><span>Voltar</span></button>
+            <button type="submit"><span>Avançar</span><GrFormNext /></button>
           </div>
         </form>
       </div>
